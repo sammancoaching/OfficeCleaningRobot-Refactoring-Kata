@@ -22,7 +22,7 @@ namespace MarsRover2
                 commandQueue.Enqueue(cmd);
             }
 
-            myRover.VisitOffice(commandQueue);
+            myRover.Visitplateau(commandQueue);
             System.Console.Out.WriteLine("=> Visited: " + myRover.GetNumberOfUniquePlacesVisited());
         }
 

@@ -13,7 +13,7 @@ class Program
         {
             s = System.Console.ReadLine();
             ss = s.Split(' ');
-            rover.clean(Convert.ToInt32(ss[1]), ss[0][0]);
+            rover.visit(Convert.ToInt32(ss[1]), ss[0][0]);
         }
 			
         System.Console.WriteLine("=> Visited: " + rover.getUniquePlacesVisited());

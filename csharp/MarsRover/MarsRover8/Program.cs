@@ -55,7 +55,7 @@ class Program
 
                 //create Rover object
                 var rover = new Rover();
-                //Visit office space
+                //Visit plateau space
                 int u = rover.move(startingPoint, commands);
                 //print out result to standard out
                 System.Console.WriteLine("=> Visited: " + u);

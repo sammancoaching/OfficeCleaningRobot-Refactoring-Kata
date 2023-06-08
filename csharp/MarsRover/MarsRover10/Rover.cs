@@ -32,8 +32,8 @@ namespace MarsRover10
 			return uniquePlacesVisited;
 		}
 		
-		// Clean 'int steps' steps in direction 'char direction'
-		public void clean(int steps, char direction)
+		// visit 'int steps' steps in direction 'char direction'
+		public void visit(int steps, char direction)
 		{
 			LineSegment lineSegment;
 			
@@ -62,7 +62,7 @@ namespace MarsRover10
 				uniquePlacesVisited += steps - getNumberOfIntersections(lineSegment);
 			else
 			{
-				// Clean unique positions of the segment
+				// visit unique positions of the segment
 				LineSegment ls = lineSegment;
 				int steps1 = ls.max - ls.min + 1;
 				Point pointToCheck;

@@ -58,10 +58,10 @@ namespace MarsRover2
         }
 
         /// <summary>
-        /// Visits the office area based on a command queue
+        /// Visits the plateau area based on a command queue
         /// </summary>
         /// <param name="commands">Command queue</param>
-        public void VisitOffice(Queue<Command> commands)
+        public void Visitplateau(Queue<Command> commands)
         {
             int numOfCommands = commands.Count;
             for (int i = 0; i < numOfCommands; i++)
@@ -82,7 +82,7 @@ namespace MarsRover2
         }
 
         /// <summary>
-        /// Gets a number of unique office places (vertices) Visited
+        /// Gets a number of unique plateau places (vertices) Visited
         /// </summary>
         /// <returns></returns>
         public long GetNumberOfUniquePlacesVisited()

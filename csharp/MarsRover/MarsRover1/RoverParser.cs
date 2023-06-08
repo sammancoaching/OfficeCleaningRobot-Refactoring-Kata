@@ -1,3 +1,4 @@
+namespace MarsRover1;
 class RoverParser
 {
     private int MINIMUM_NUM_ENTRIES = 3; //Must at least be #steps, position, 1..n moves.

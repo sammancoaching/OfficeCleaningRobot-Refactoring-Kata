@@ -1,3 +1,5 @@
+namespace MarsRover1;
+
 class Rover
 {
    private RoverParser parser;

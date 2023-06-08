@@ -1,3 +1,4 @@
+namespace MarsRover1;
 
 
 //A class to keep track of the X and Y positions
@@ -5,7 +6,7 @@ public class Coordinate
 {
     public Int32 x;
     public Int32 y;
-        
+
     public Coordinate(int horiz, int vert)
     {
         x = horiz;
@@ -34,7 +35,7 @@ public interface Direction
 
 public class East : Direction
 {
-    public void move (Coordinate coord)
+    public void move(Coordinate coord)
     {
         coord.x++;
     }
@@ -56,7 +57,7 @@ public class North : Direction
     }
 }
 
-public class South: Direction
+public class South : Direction
 {
     public void move(Coordinate coord)
     {

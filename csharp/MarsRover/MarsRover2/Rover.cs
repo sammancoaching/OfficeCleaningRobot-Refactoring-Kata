@@ -6,7 +6,7 @@ using System.Text;
 namespace MarsRover2
 {
     /// <summary>
-    /// Models a cleaning robot
+    /// Models a visiting robot
     /// </summary>
     public class Rover
     {
@@ -58,10 +58,10 @@ namespace MarsRover2
         }
 
         /// <summary>
-        /// Cleans the office area based on a command queue
+        /// Visits the office area based on a command queue
         /// </summary>
         /// <param name="commands">Command queue</param>
-        public void CleanOffice(Queue<Command> commands)
+        public void VisitOffice(Queue<Command> commands)
         {
             int numOfCommands = commands.Count;
             for (int i = 0; i < numOfCommands; i++)
@@ -82,7 +82,7 @@ namespace MarsRover2
         }
 
         /// <summary>
-        /// Gets a number of unique office places (vertices) cleaned
+        /// Gets a number of unique office places (vertices) Visited
         /// </summary>
         /// <returns></returns>
         public long GetNumberOfUniquePlacesVisited()

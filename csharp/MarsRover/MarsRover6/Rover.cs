@@ -8,25 +8,25 @@ namespace MarsRover6
     public class Rover
     {
         /// <summary>
-        /// The StartCleanUp process will do the actual cleaning process by rover
-        /// ralCleaningPoints contains list of all cleaning positions which the rover has to clean
+        /// The Startvisit process will do the actual visiting process by rover
+        /// ralvisitingPoints contains list of all visiting positions which the rover has to Visit
         /// </summary>
-        /// <param name="ralCleaningPoints"></param>
-        public void StartRoving(ArrayList ralCleaningPoints)
+        /// <param name="ralvisitingPoints"></param>
+        public void StartRoving(ArrayList ralvisitingPoints)
         {
             try
             {
                 //oRobotCurrentPosition will store the current position of the rover
                 Position oRobotCurrentPosition;
 
-                //The loop will iterate through the list of all cleaning positions which the rover has to clean
-                for (int iLoop = 0; iLoop < ralCleaningPoints.Count; iLoop++)
+                //The loop will iterate through the list of all visiting positions which the rover has to Visit
+                for (int iLoop = 0; iLoop < ralvisitingPoints.Count; iLoop++)
                 {
                     //Storing the current position of rover
                     oRobotCurrentPosition = PositionManager.Instance.CurrentPosition;
 
-                    //calculating next Rover position from the list of all cleaning positions which the rover has to clean
-                    String sNextRoverPosition = (String)ralCleaningPoints[iLoop];
+                    //calculating next Rover position from the list of all visiting positions which the rover has to Visit
+                    String sNextRoverPosition = (String)ralvisitingPoints[iLoop];
 
                     //splitting next Rover position to get the direction and no of steps the rover has to move
                     String[] arrRoverPositions = sNextRoverPosition.Split(' ');
@@ -43,7 +43,7 @@ namespace MarsRover6
 
                     //The loop will iterate through the no of steps which the rover has to take
                     //based on the direction the current rover position will be getting incremented or decremented
-                    //if the current position of rover is unique it would be added to the cleaned positions list
+                    //if the current position of rover is unique it would be added to the Visited positions list
                     for (int iInnerLoop = 0; iInnerLoop < iNoOfSteps; iInnerLoop++)
                     {
                         switch (sNextDirection.ToUpper())//switch  case on the direction of rover
@@ -75,7 +75,7 @@ namespace MarsRover6
                                 }
                         }
 
-                        //Call to add the current position of the rover to the cleaned positions list
+                        //Call to add the current position of the rover to the Visited positions list
                         PositionManager.Instance.AddVisitingPosition();
                     }
 
@@ -90,15 +90,15 @@ namespace MarsRover6
         }
 
         /// <summary>
-        /// The function will return the total no of unique positions cleaned by rover
+        /// The function will return the total no of unique positions Visited by rover
         /// </summary>
         /// <returns></returns>
         public int GetTotalNoOfVisitedPositions()
         {
             try
             {
-                //retruning count of the list of unique positions cleaned by rover
-                return PositionManager.Instance.CleanedPositionList.Count;
+                //retruning count of the list of unique positions Visited by rover
+                return PositionManager.Instance.VisitedPositionList.Count;
             }
             catch (Exception ex)
             {

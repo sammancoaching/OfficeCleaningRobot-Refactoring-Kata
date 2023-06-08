@@ -31,7 +31,7 @@ class RoverParser
         return moves;
     }
 
-    private void cleanup()
+    private void visit()
     {
         if (moves!= null)
             moves = null;
@@ -42,8 +42,8 @@ class RoverParser
     public bool parse(List<string> commands)
     {
         //OMITTED: The logging statements that should precede return false;
-        //perform cleanup
-        cleanup();
+        //perform visit
+        visit();
 
         //first, ensure not null or incorrect number of elements
         if (commands == null || commands.Count < MINIMUM_NUM_ENTRIES)

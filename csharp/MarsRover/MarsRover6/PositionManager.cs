@@ -8,7 +8,7 @@ namespace MarsRover6
     public class PositionManager
     {
         private static PositionManager instance; //instance of Position manager class
-        private ArrayList alCleanedPosition ; //list of positions cleaned by robot
+        private ArrayList alVisitedPosition ; //list of positions Visited by robot
         private Position oCurrentPosition ; //current position of robot in the plane 
         
         /// <summary>
@@ -16,7 +16,7 @@ namespace MarsRover6
         /// </summary>
         private PositionManager()
         { 
-            alCleanedPosition = new ArrayList(); //Initializing Cleaned Position list
+            alVisitedPosition = new ArrayList(); //Initializing Visited Position list
             oCurrentPosition = new Position(); //Initializing Current Position variable
         }
 
@@ -49,13 +49,13 @@ namespace MarsRover6
         }
 
         /// <summary>
-        /// Interface for returning list of cleaned positions by robot
+        /// Interface for returning list of Visited positions by robot
         /// </summary>
-        public ArrayList CleanedPositionList
+        public ArrayList VisitedPositionList
         {
             get 
             {
-                return this.alCleanedPosition; //returning list of cleaned positions by robot
+                return this.alVisitedPosition; //returning list of Visited positions by robot
             }
         }
 
@@ -73,27 +73,27 @@ namespace MarsRover6
         }
 
         /// <summary>
-        /// Checks if the Current Cleaning Position has not already been cleaned
-        /// OtherWise adds the Current Cleaning Position to the cleaned Positions list
+        /// Checks if the Current visiting Position has not already been Visited
+        /// OtherWise adds the Current visiting Position to the Visited Positions list
         /// </summary>
         public void AddVisitingPosition()
         {
             try
             {
-                if (alCleanedPosition.Count > 0) //checking if count of already cleaned positions list > 0
+                if (alVisitedPosition.Count > 0) //checking if count of already Visited positions list > 0
                 {
-                    if (CheckCleanedPositionAlreadyExist(oCurrentPosition)) //call to check if current position has already been cleaned or not
+                    if (CheckVisitedPositionAlreadyExist(oCurrentPosition)) //call to check if current position has already been Visited or not
                     {
-                        return; //returning if the position is already in the cleaned position list
+                        return; //returning if the position is already in the Visited position list
                     }
                 }
 
-                //if the current position is not previously cleaned by robot
-                //adding current position to the cleaned position list
+                //if the current position is not previously Visited by robot
+                //adding current position to the Visited position list
                 //new Position(oCurrentPosition) will create a new instance of Position class and will use
                 //copy constructor to copy the value of current position to the new position.
                 //creation of new position will avoid referencing to current position when added in the list
-                alCleanedPosition.Add(new Position(oCurrentPosition));
+                alVisitedPosition.Add(new Position(oCurrentPosition));
             }
             catch (Exception ex)
             {
@@ -104,22 +104,22 @@ namespace MarsRover6
         }
 
         /// <summary>
-        /// Checks if the Cleaning Position which is coming as an argument has not already been cleaned
+        /// Checks if the visiting Position which is coming as an argument has not already been Visited
         /// </summary>
-        /// <param name="roCleaningPosition"></param>
+        /// <param name="rovisitingPosition"></param>
         /// <returns></returns>
-        private bool CheckCleanedPositionAlreadyExist(Position roCleaningPosition)
+        private bool CheckVisitedPositionAlreadyExist(Position rovisitingPosition)
         {
             try
             {
-                //The loop will iterate through the list of already cleaned positions by robot
-                for (int iLoop = 0; iLoop < alCleanedPosition.Count; iLoop++)
+                //The loop will iterate through the list of already Visited positions by robot
+                for (int iLoop = 0; iLoop < alVisitedPosition.Count; iLoop++)
                 {
-                    //Taking already cleaned position from the list
-                    Position oAlreadyCleanedPosition = (Position)alCleanedPosition[iLoop];
+                    //Taking already Visited position from the list
+                    Position oAlreadyVisitedPosition = (Position)alVisitedPosition[iLoop];
 
-                    if (oAlreadyCleanedPosition.Equals(roCleaningPosition))//checking if position has already been cleaned or not
-                        return true; //return true if position has already been cleaned
+                    if (oAlreadyVisitedPosition.Equals(rovisitingPosition))//checking if position has already been Visited or not
+                        return true; //return true if position has already been Visited
                 }
 
             }
@@ -130,7 +130,7 @@ namespace MarsRover6
                 System.Console.ReadLine();
             }
 
-            return false; //return false if position has not previously been cleaned
+            return false; //return false if position has not previously been Visited
         }
 
 

@@ -12,7 +12,7 @@ class Program
         //read starting location of robot
         string[] startPoints = System.Console.ReadLine().Split(' '); ;
         var robot = new Rover();
-        //Cleans the starting location
+        //Visits the starting location
         robot.StartAt(Convert.ToInt32(startPoints[0]), Convert.ToInt32(startPoints[1]));
 
         IList<string> listOfCommands = new List<string>();
@@ -21,12 +21,12 @@ class Program
             listOfCommands.Add(System.Console.ReadLine());
         }
 
-        //Reads the direction and number of steps and cleans the floor in each direction
+        //Reads the direction and number of steps and Visits the floor in each direction
         foreach (string command in listOfCommands)
         {
             string[] options = command.Split(' ');               
                 
-            robot.CleanFloor(Convert.ToChar(options[0]), Convert.ToInt32(options[1]));
+            robot.VisitFloor(Convert.ToChar(options[0]), Convert.ToInt32(options[1]));
         }
            
         System.Console.WriteLine(String.Format("Visited=> {0}", robot.visitedPlaces.Count));           

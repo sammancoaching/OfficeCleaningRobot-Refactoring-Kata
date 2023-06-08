@@ -66,7 +66,7 @@ namespace MarsRover9
         public Rover() { }
 
         /// <summary>
-        /// Starts the robot at given location and clean it 
+        /// Starts the robot at given location and Visit it 
         /// </summary>
         /// <param name="X">X coordinate</param>
         /// <param name="Y">Y coordiante</param>
@@ -74,18 +74,18 @@ namespace MarsRover9
         {
             CURRENT_X = X; // x(-100,000 <= x <= 100,000)
             CURRENT_Y = Y; //y(-100,000 <= y <= 100,000)
-            //Cleaned start position,  (Key  = CURRENT_X + CURRENT_Y) for searching
+            //Visited start position,  (Key  = CURRENT_X + CURRENT_Y) for searching
             visitedPlaces.Add(string.Format("{0}{1}",CURRENT_X, CURRENT_Y), new Coordinates(CURRENT_X, CURRENT_Y));
         }
 
         /// <summary>
-        /// Cleans the floor 
+        /// Visits the floor 
         /// in direction
         /// with number of steps
         /// </summary>
         /// <param name="direction">Direction {'E', 'W', 'N', 'S'}</param>
         /// <param name="steps"></param>
-        public void CleanFloor(char direction, int steps)
+        public void VisitFloor(char direction, int steps)
         {
             // if the correct direction is no given it exits
             if (!DIRECTIONS.Contains(direction.ToString()))
@@ -109,7 +109,7 @@ namespace MarsRover9
                             //if place is not visited
                             if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X, CURRENT_Y + 1)))
                             {
-                                //clean it and add to the visited places
+                                //Visit it and add to the visited places
                                 visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X, CURRENT_Y + 1), new Coordinates(CURRENT_X, ++CURRENT_Y));
                             }
                             else
@@ -134,7 +134,7 @@ namespace MarsRover9
                             //if place is not visited
                             if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X, CURRENT_Y - 1)))
                             {
-                                //clean it and add to the visited places
+                                //Visit it and add to the visited places
                                 visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X, CURRENT_Y - 1), new Coordinates(CURRENT_X, --CURRENT_Y));
                             }
                             else
@@ -159,7 +159,7 @@ namespace MarsRover9
                             //if place is not visited
                             if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X - 1, CURRENT_Y)))
                             {
-                                //clean it and add to the visited places
+                                //Visit it and add to the visited places
                                 visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X - 1, CURRENT_Y), new Coordinates(--CURRENT_X, CURRENT_Y));
                             }
                             else
@@ -184,7 +184,7 @@ namespace MarsRover9
                             //if place is not visited
                             if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X + 1, CURRENT_Y)))
                             {
-                                //clean it and add to the visited places
+                                //Visit it and add to the visited places
                                 visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X + 1, CURRENT_Y), new Coordinates(++CURRENT_X, CURRENT_Y));
                             }
                             else

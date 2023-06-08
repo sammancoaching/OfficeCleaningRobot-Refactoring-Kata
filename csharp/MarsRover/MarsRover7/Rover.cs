@@ -10,7 +10,7 @@ namespace MarsRover7
         #region Private members
         
         private Point currentPosition;
-        private List<Point> cleanedPlaces;
+        private List<Point> VisitedPlaces;
         
         #endregion
 
@@ -23,14 +23,14 @@ namespace MarsRover7
             {
                 currentPosition = value;
                 //Every time the current position is set it means that the robot is at that position
-                //so that position will be cleaned.
-                //The following code tries to add this position to the already cleaned positions list.
-                AddPlaceToCleaned(value);
+                //so that position will be Visited.
+                //The following code tries to add this position to the already Visited positions list.
+                AddPlaceToVisited(value);
             }
         }
         public int VisitedPlacesCount
         {
-            get { return cleanedPlaces.Count; }
+            get { return VisitedPlaces.Count; }
         }
 
         #endregion
@@ -39,7 +39,7 @@ namespace MarsRover7
 
         public Rover()
         {
-            cleanedPlaces = new List<Point>();
+            VisitedPlaces = new List<Point>();
             currentPosition = new Point();
         }
 
@@ -50,7 +50,7 @@ namespace MarsRover7
         /// <summary>
         /// This method executes the given command.Depending on the direction and 
         /// the number of the steps, robot's current position changes which reflects in this place
-        /// getting cleaned.
+        /// getting Visited.
         /// </summary>
         /// <param name="command">Command to execute</param>
         public void ExecuteCommand(CommandDescription command)
@@ -85,13 +85,13 @@ namespace MarsRover7
         #region Helper Methods
 
         /// <summary>
-        /// Checks whether given place already exists in cleaned places collection
+        /// Checks whether given place already exists in Visited places collection
         /// </summary>
         /// <param name="placeToSearchFor">Place to search</param>
-        /// <returns>True if robot has already been added to the cleaned places collection </returns>
-        private bool IsPlaceAlreadyCleaned(Point placeToSearchFor)
+        /// <returns>True if robot has already been added to the Visited places collection </returns>
+        private bool IsPlaceAlreadyVisited(Point placeToSearchFor)
         {
-            foreach (Point point in cleanedPlaces)
+            foreach (Point point in VisitedPlaces)
             {
                 if ((point.X == placeToSearchFor.X) && (point.Y == placeToSearchFor.Y))
                 {
@@ -102,14 +102,14 @@ namespace MarsRover7
         }
 
         /// <summary>
-        /// Adds the place to the cleaned places collection
+        /// Adds the place to the Visited places collection
         /// </summary>
         /// <param name="place"></param>
-        private void AddPlaceToCleaned(Point place)
+        private void AddPlaceToVisited(Point place)
         {
-            if (!IsPlaceAlreadyCleaned(place))
+            if (!IsPlaceAlreadyVisited(place))
             {
-                cleanedPlaces.Add(place);
+                VisitedPlaces.Add(place);
             }
         }
 

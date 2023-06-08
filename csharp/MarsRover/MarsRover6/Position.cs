@@ -104,8 +104,8 @@ namespace MarsRover6
         /// <returns></returns>
         public override string ToString()
         {
-            //the string returned would be like Cleaned Position = 10,2
-            return "Cleaned Position = " + this.iXCoordinate + " , " + this.iYCoordinate + "\n";
+            //the string returned would be like Visited Position = 10,2
+            return "Visited Position = " + this.iXCoordinate + " , " + this.iYCoordinate + "\n";
         } 
 
     }

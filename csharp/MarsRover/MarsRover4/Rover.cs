@@ -16,7 +16,7 @@ namespace MarsRover4
         m_xPos = x;
         m_yPos = y;
         ht_VisitedSpots = new Hashtable();
-        ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Clean");
+        ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Visit");
       }
 
       public Rover()
@@ -40,7 +40,7 @@ namespace MarsRover4
               m_yPos++;
               try
               {
-                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Clean");
+                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Visit");
               }
               catch (ArgumentException ae)
               {
@@ -53,7 +53,7 @@ namespace MarsRover4
               m_yPos--;
               try
               {
-                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Clean");
+                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Visit");
               }
               catch (ArgumentException ae)
               {
@@ -66,7 +66,7 @@ namespace MarsRover4
               m_xPos++;
               try
               {
-                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Clean");
+                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Visit");
               }
               catch (ArgumentException ae)
               {
@@ -79,7 +79,7 @@ namespace MarsRover4
               m_xPos--;
               try
               {
-                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Clean");
+                ht_VisitedSpots.Add(m_xPos.ToString() + "," + m_yPos.ToString(), "Visit");
               }
               catch (ArgumentException ae)
               {

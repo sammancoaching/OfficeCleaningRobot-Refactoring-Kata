@@ -33,8 +33,8 @@ Sample input:
 
 	2
 	10 22
-	E2
-	N1
+	E 2
+	N 1
 
 Sample output:
 	

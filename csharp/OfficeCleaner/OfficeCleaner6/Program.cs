@@ -6,8 +6,10 @@ public class Program
     {
         public static void Main(string[] args)
         {
+            PositionManager.Reset();
             try
             {
+                args = Console.In.ReadToEnd().Split(new string[]{"\n"}, StringSplitOptions.RemoveEmptyEntries);;
 
                 if (args.Length == 0) // if no input arguments  are provided
                     throw new Exception("Sorry! No Input Arguments Provided.");
@@ -63,7 +65,7 @@ public class Program
                 int iNoOfPositionsVisited = oRobotCleaner.GetTotalNoOfVisitedPositions();
 
                 //Printing total no of visited positions
-                System.Console.WriteLine("Total No of Unique Positions Visited = " + iNoOfPositionsVisited);
+                System.Console.WriteLine("=> Cleaned: " + iNoOfPositionsVisited);
                 System.Console.ReadLine();
             }
             catch (Exception ex)

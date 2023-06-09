@@ -29,6 +29,6 @@ public class Program
             robot.VisitFloor(Convert.ToChar(options[0]), Convert.ToInt32(options[1]));
         }
            
-        System.Console.WriteLine(String.Format("Visited=> {0}", robot.visitedPlaces.Count));           
+        System.Console.WriteLine(String.Format("=> Cleaned: {0}", robot.visitedPlaces.Count));           
     }
 }

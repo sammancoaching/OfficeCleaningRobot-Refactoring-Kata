@@ -33,6 +33,11 @@ namespace OfficeCleaner6
             }
         }
 
+        public static void Reset()
+        {
+            instance = null;
+        }
+
         /// <summary>
         /// Setter and Getter for the Current Psotiton of the robot
         /// </summary>

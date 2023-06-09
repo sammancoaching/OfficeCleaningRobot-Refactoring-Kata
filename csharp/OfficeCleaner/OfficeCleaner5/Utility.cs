@@ -14,7 +14,7 @@ namespace OfficeCleaner5
 
         public static int ValidateStepRange(int step)
         {
-            if ( step < 100000 && step > 0 )
+            if ( step < 100000 && step >= 0 )
             {
                 return step;
             }

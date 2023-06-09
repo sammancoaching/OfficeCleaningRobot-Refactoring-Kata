@@ -2,7 +2,7 @@
 
 public static class Program
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
         IStandardInputLineReader inputLineReader = new StandardInputLineReader();
         IStandardOutputLineWriter outputLineWriter = new StandardOutputLineWriter();

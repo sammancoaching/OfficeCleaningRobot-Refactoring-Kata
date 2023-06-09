@@ -15,15 +15,22 @@ namespace OfficeCleaner2
             startX = int.Parse(coords[0]);
             startY = int.Parse(coords[1]);
             myRobotCleaner = new RobotCleaner(startX, startY);
-            for (int i = 1; i <= numOfCommands; i++)
+            if (numOfCommands > 0)
             {
-                string[] input = System.Console.In.ReadLine().Split(' ');
-                Command cmd = new Command(GetDirection(input[0]), int.Parse(input[1]));
-                commandQueue.Enqueue(cmd);
+                for (int i = 1; i <= numOfCommands; i++)
+                {
+                    string[] input = System.Console.In.ReadLine().Split(' ');
+                    Command cmd = new Command(GetDirection(input[0]), int.Parse(input[1]));
+                    commandQueue.Enqueue(cmd);
+                }
+                myRobotCleaner.VisitOffice(commandQueue);
+                System.Console.Out.WriteLine("=> Cleaned: " + myRobotCleaner.GetNumberOfUniquePlacesVisited());
             }
-
-            myRobotCleaner.Visitplateau(commandQueue);
-            System.Console.Out.WriteLine("=> Cleaned: " + myRobotCleaner.GetNumberOfUniquePlacesVisited());
+            else
+            {
+                System.Console.Out.WriteLine("=> Cleaned: 1");
+            }
+            
         }
 
         static Direction GetDirection(string dir)

@@ -61,7 +61,7 @@ namespace OfficeCleaner2
         /// Visits the plateau area based on a command queue
         /// </summary>
         /// <param name="commands">Command queue</param>
-        public void Visitplateau(Queue<Command> commands)
+        public void VisitOffice(Queue<Command> commands)
         {
             int numOfCommands = commands.Count;
             for (int i = 0; i < numOfCommands; i++)

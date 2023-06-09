@@ -33,7 +33,11 @@ namespace OfficeCleaner8
             foreach (ICommand command in commands)
             {
                 VisitedPlaces = command.Execute(startingPlace);
-                startingPlace = VisitedPlaces[VisitedPlaces.Count - 1];
+                if (VisitedPlaces.Count > 0)
+                {
+                    startingPlace = VisitedPlaces[VisitedPlaces.Count - 1];
+                    
+                }
 
                 foreach (IPoint VisitedPlace in VisitedPlaces)
                 {

@@ -62,6 +62,10 @@ class RobotCleaner
 
             foreach (string command in _cleanerParser.getCommands())
             {
+                if (command == null)
+                {
+                    continue;
+                }
                 string[] commandParts = command.Split(' ');
                 int iterations = System.Convert.ToInt32(commandParts[1]);
 

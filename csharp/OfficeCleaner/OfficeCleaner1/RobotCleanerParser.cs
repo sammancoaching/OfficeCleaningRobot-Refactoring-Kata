@@ -50,7 +50,7 @@ class RobotCleanerParser
             return false;
 
         //next, evaluate the number of steps
-        if (System.Convert.ToInt32(commands[0], 10) != commands.Count - COMMAND_OVERHEAD)
+        if (System.Convert.ToInt32(commands[0], 10) < 0)
             return false;
 
         //parse the initial position and store it
@@ -69,6 +69,10 @@ class RobotCleanerParser
      
         foreach (string s in commands)
         {
+            if (commands[1] == null)
+            {
+                continue;
+            }
             string[] commandLineItemParts = commands[1].Split(' ');
             if (!supportedMoves.Contains(commandLineItemParts[0]))
                 return false;

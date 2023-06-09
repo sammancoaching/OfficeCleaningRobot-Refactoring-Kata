@@ -96,5 +96,15 @@ namespace OfficeCleaner4
         get { return ht_VisitedSpots.Count; }
       }
 
+      public void PrintVisitedSpots()
+      {
+        var result = "";
+        foreach (DictionaryEntry spot in ht_VisitedSpots)
+        {
+          result += spot.ToString();
+          result += "\n";
+        }
+        //Console.Out.Write(result);
+      }
     }
 }

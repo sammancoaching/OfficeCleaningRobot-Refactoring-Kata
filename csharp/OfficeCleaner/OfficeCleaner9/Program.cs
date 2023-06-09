@@ -26,9 +26,10 @@ public class Program
         {
             string[] options = command.Split(' ');               
                 
-            robot.VisitFloor(Convert.ToChar(options[0]), Convert.ToInt32(options[1]));
+            robot.CleanFloor(Convert.ToChar(options[0]), Convert.ToInt32(options[1]));
         }
-           
+
+        robot.PrintVisitedPlaces();
         System.Console.WriteLine(String.Format("=> Cleaned: {0}", robot.visitedPlaces.Count));           
     }
 }

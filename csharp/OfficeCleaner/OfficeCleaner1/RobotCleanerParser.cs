@@ -1,7 +1,7 @@
 namespace OfficeCleaner1;
 class RobotCleanerParser
 {
-    private int MINIMUM_NUM_ENTRIES = 3; //Must at least be #steps, position, 1..n moves.
+    private int MINIMUM_NUM_ENTRIES = 2; //Must at least be #steps, position, 0..n moves.
     private int COMMAND_OVERHEAD = 2; //# steps, position
     private const int MINIMUM_NUM_STEPS = 0; //minimum number of steps
     private const int MAXIMUM_NUM_STEPS = 100000; //maximum number of steps
@@ -69,11 +69,11 @@ class RobotCleanerParser
      
         foreach (string s in commands)
         {
-            if (commands[1] == null)
+            if (s == null)
             {
                 continue;
             }
-            string[] commandLineItemParts = commands[1].Split(' ');
+            string[] commandLineItemParts = s.Split(' ');
             if (!supportedMoves.Contains(commandLineItemParts[0]))
                 return false;
             if (commandLineItemParts.Length != 2)

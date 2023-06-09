@@ -11,6 +11,9 @@ public class TestDataGenerator : IEnumerable<object[]>
         new object[] { "Input_empty.txt",  "=> Cleaned: 1"},
         new object[] { "Input_one.txt",  "=> Cleaned: 1"},
         new object[] { "Input_given_sample.txt",  "=> Cleaned: 4"},
+        new object[] { "Input_only_west.txt",  "=> Cleaned: 9"},
+        new object[] { "Input_wiping.txt",  "=> Cleaned: 9"},
+        new object[] { "Input_large.txt",  "=> Cleaned: 1047"},
     };
     public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
 

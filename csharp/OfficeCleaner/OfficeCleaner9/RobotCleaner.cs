@@ -54,6 +54,11 @@ namespace OfficeCleaner9
                 this.X = x;
                 this.Y = y;
             }
+
+            public override string ToString()
+            {
+                return "[" + this.X + ", " + this.Y + ", Visit]";
+            }
         }
         /// <summary>
         /// Sorted List(for fast searching) of visited spaces(coordinates) on floor.
@@ -75,7 +80,7 @@ namespace OfficeCleaner9
             CURRENT_X = X; // x(-100,000 <= x <= 100,000)
             CURRENT_Y = Y; //y(-100,000 <= y <= 100,000)
             //Visited start position,  (Key  = CURRENT_X + CURRENT_Y) for searching
-            visitedPlaces.Add(string.Format("{0}{1}",CURRENT_X, CURRENT_Y), new Coordinates(CURRENT_X, CURRENT_Y));
+            visitedPlaces.Add(string.Format("{0} {1}",CURRENT_X, CURRENT_Y), new Coordinates(CURRENT_X, CURRENT_Y));
         }
 
         /// <summary>
@@ -85,7 +90,7 @@ namespace OfficeCleaner9
         /// </summary>
         /// <param name="direction">Direction {'E', 'W', 'N', 'S'}</param>
         /// <param name="steps"></param>
-        public void VisitFloor(char direction, int steps)
+        public void CleanFloor(char direction, int steps)
         {
             // if the correct direction is no given it exits
             if (!DIRECTIONS.Contains(direction.ToString()))
@@ -107,10 +112,10 @@ namespace OfficeCleaner9
                         else
                         {
                             //if place is not visited
-                            if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X, CURRENT_Y + 1)))
+                            if (!visitedPlaces.ContainsKey(string.Format("{0} {1}", CURRENT_X, CURRENT_Y + 1)))
                             {
                                 //Visit it and add to the visited places
-                                visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X, CURRENT_Y + 1), new Coordinates(CURRENT_X, ++CURRENT_Y));
+                                visitedPlaces.Add(string.Format("{0} {1}", CURRENT_X, CURRENT_Y + 1), new Coordinates(CURRENT_X, ++CURRENT_Y));
                             }
                             else
                             {
@@ -132,10 +137,10 @@ namespace OfficeCleaner9
                         else
                         {
                             //if place is not visited
-                            if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X, CURRENT_Y - 1)))
+                            if (!visitedPlaces.ContainsKey(string.Format("{0} {1}", CURRENT_X, CURRENT_Y - 1)))
                             {
                                 //Visit it and add to the visited places
-                                visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X, CURRENT_Y - 1), new Coordinates(CURRENT_X, --CURRENT_Y));
+                                visitedPlaces.Add(string.Format("{0} {1}", CURRENT_X, CURRENT_Y - 1), new Coordinates(CURRENT_X, --CURRENT_Y));
                             }
                             else
                             {
@@ -157,10 +162,10 @@ namespace OfficeCleaner9
                         else
                         {
                             //if place is not visited
-                            if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X - 1, CURRENT_Y)))
+                            if (!visitedPlaces.ContainsKey(string.Format("{0} {1}", CURRENT_X - 1, CURRENT_Y)))
                             {
                                 //Visit it and add to the visited places
-                                visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X - 1, CURRENT_Y), new Coordinates(--CURRENT_X, CURRENT_Y));
+                                visitedPlaces.Add(string.Format("{0} {1}", CURRENT_X - 1, CURRENT_Y), new Coordinates(--CURRENT_X, CURRENT_Y));
                             }
                             else
                             {
@@ -182,10 +187,10 @@ namespace OfficeCleaner9
                         else
                         {
                             //if place is not visited
-                            if (!visitedPlaces.ContainsKey(string.Format("{0}{1}", CURRENT_X + 1, CURRENT_Y)))
+                            if (!visitedPlaces.ContainsKey(string.Format("{0} {1}", CURRENT_X + 1, CURRENT_Y)))
                             {
                                 //Visit it and add to the visited places
-                                visitedPlaces.Add(string.Format("{0}{1}", CURRENT_X + 1, CURRENT_Y), new Coordinates(++CURRENT_X, CURRENT_Y));
+                                visitedPlaces.Add(string.Format("{0} {1}", CURRENT_X + 1, CURRENT_Y), new Coordinates(++CURRENT_X, CURRENT_Y));
                             }
                             else
                             {
@@ -196,6 +201,19 @@ namespace OfficeCleaner9
                     }
                     break;
             }
+        }
+
+        public void PrintVisitedPlaces()
+        {
+            
+                var result = "";
+                foreach (var spot in visitedPlaces)
+                {
+                    result += spot.Value.ToString();
+                    result += "\n";
+                }
+                //Console.Out.Write(result);
+            
         }
     }
 }

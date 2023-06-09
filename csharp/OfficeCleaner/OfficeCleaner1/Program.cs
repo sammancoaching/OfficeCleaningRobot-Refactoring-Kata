@@ -19,7 +19,7 @@ namespace OfficeCleaner1
             if (false == mainRobot.parseInput(inputCommands))
                 System.Console.Write("There was an error. Please check the logs");
 
-            System.Console.Write("=> Visited:" + mainRobot.getVisitedPositions());
+            System.Console.Write("=> Cleaned:" + mainRobot.getVisitedPositions());
         }
     }
 }

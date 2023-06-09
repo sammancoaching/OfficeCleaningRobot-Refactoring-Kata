@@ -35,7 +35,7 @@ namespace OfficeCleaner11
                     rosieTheRobotCleaner.MoveForward(command);
                 }
 
-                _outputLineWriter.WriteLine(string.Format("=> Visited: {0}", rosieTheRobotCleaner.VisitedPlacesCount));
+                _outputLineWriter.WriteLine(string.Format("=> Cleaned: {0}", rosieTheRobotCleaner.VisitedPlacesCount));
             }
             catch (Exception e)
             {

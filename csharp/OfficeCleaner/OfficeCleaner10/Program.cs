@@ -16,6 +16,6 @@ public class Program
             rover.visit(Convert.ToInt32(ss[1]), ss[0][0]);
         }
 			
-        System.Console.WriteLine("=> Visited: " + rover.getUniquePlacesVisited());
+        System.Console.WriteLine("=> Cleaned: " + rover.getUniquePlacesVisited());
     }
 }

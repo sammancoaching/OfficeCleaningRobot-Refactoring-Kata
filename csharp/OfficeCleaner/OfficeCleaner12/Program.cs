@@ -23,7 +23,7 @@ public static class Program
                 rosieTheRover.Move(command.Item1, command.Item2);
             }
 
-            System.Console.WriteLine(string.Format("=> Visited: {0}", rosieTheRover.visitedPlacesCount));
+            System.Console.WriteLine(string.Format("=> Cleaned: {0}", rosieTheRover.visitedPlacesCount));
         }
         catch (Exception e)
         {

@@ -16,6 +16,6 @@ public class Program
             string[] moves = strMovement.Split(" ".ToCharArray());
             r.Move(moves[0], Int32.Parse(moves[1]));
         }
-        System.Console.WriteLine("=> Visited: " + r.VisitedSpots.ToString());
+        System.Console.WriteLine("=> Cleaned: " + r.VisitedSpots.ToString());
     }
 }

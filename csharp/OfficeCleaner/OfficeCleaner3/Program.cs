@@ -16,6 +16,6 @@ public static class Program
             int steps = Convert.ToInt32(movement[1]);
             rob.Move(dir, steps);
         }
-        con.WriteLine("=> Visited: " + rob.Counter);
+        con.WriteLine("=> Cleaned: " + rob.Counter);
     }
 }

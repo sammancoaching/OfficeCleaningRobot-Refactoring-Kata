@@ -14,7 +14,7 @@ public class MarsRoverTests
         using (StringWriter sw = new StringWriter())
         {
             OfficeCleaner1.Program.Main(emptyArgs);
-            string expected = "=> Visited: 0";
+            string expected = "=> Cleaned: 0";
             Assert.AreEqual(sw.ToString(), expected);
         }
     }
@@ -27,7 +27,7 @@ public class MarsRoverTests
         using (StringWriter sw = new StringWriter())
         {
             OfficeCleaner2.Program.Main(emptyArgs);
-            string expected = "=> Visited: 0";
+            string expected = "=> Cleaned: 0";
             Assert.AreEqual(sw.ToString(), expected);
         }
     }

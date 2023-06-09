@@ -58,7 +58,7 @@ public class Program
                 //Visit plateau space
                 int u = rover.move(startingPoint, commands);
                 //print out result to standard out
-                System.Console.WriteLine("=> Visited: " + u);
+                System.Console.WriteLine("=> Cleaned: " + u);
             }
             catch (InvalidCoordinatesException e)
             {

@@ -23,7 +23,7 @@ namespace OfficeCleaner2
             }
 
             myRobotCleaner.Visitplateau(commandQueue);
-            System.Console.Out.WriteLine("=> Visited: " + myRobotCleaner.GetNumberOfUniquePlacesVisited());
+            System.Console.Out.WriteLine("=> Cleaned: " + myRobotCleaner.GetNumberOfUniquePlacesVisited());
         }
 
         static Direction GetDirection(string dir)

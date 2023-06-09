@@ -9,7 +9,7 @@ namespace OfficeCleaner5
             input.ReadInputParameters();
             var robot = new RobotCleaner(input.InitialCoordinates);
             robot.Move(input.MoveDirections);
-            System.Console.WriteLine("=> Visited: {0}",robot.Report());
+            System.Console.WriteLine("=> Cleaned: {0}",robot.Report());
         }
     }
 }

@@ -23,7 +23,7 @@ public class Program
                 CommandDescription command = new CommandDescription(GetDirectionFromIdentifier(nextRowValues[0]), int.Parse(nextRowValues[1]));
                 robotCleaner.ExecuteCommand(command);
             }
-            System.Console.Out.Write(string.Format("=> Visited: {0}",robotCleaner.VisitedPlacesCount));
+            System.Console.Out.Write(string.Format("=> Cleaned: {0}",robotCleaner.VisitedPlacesCount));
         }
 
         /// <summary>

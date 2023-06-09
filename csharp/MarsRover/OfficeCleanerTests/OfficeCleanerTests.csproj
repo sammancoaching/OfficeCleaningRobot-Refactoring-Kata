@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+
+        <RootNamespace>MarsRoverTests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+        <PackageReference Include="NUnit" Version="3.13.3" />
+        <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+        <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
+        <PackageReference Include="coverlet.collector" Version="3.1.2" />
+        <PackageReference Include="Verify.NUnit" Version="20.3.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OfficeCleaner10\OfficeCleaner10.csproj" />
+      <ProjectReference Include="..\OfficeCleaner11\OfficeCleaner11.csproj" />
+      <ProjectReference Include="..\OfficeCleaner12\OfficeCleaner12.csproj" />
+      <ProjectReference Include="..\OfficeCleaner1\OfficeCleaner1.csproj" />
+      <ProjectReference Include="..\OfficeCleaner2\OfficeCleaner2.csproj" />
+      <ProjectReference Include="..\OfficeCleaner3\OfficeCleaner3.csproj" />
+      <ProjectReference Include="..\OfficeCleaner4\OfficeCleaner4.csproj" />
+      <ProjectReference Include="..\OfficeCleaner5\OfficeCleaner5.csproj" />
+      <ProjectReference Include="..\OfficeCleaner6\OfficeCleaner6.csproj" />
+      <ProjectReference Include="..\OfficeCleaner7\OfficeCleaner7.csproj" />
+      <ProjectReference Include="..\OfficeCleaner8\OfficeCleaner8.csproj" />
+      <ProjectReference Include="..\OfficeCleaner9\OfficeCleaner9.csproj" />
+    </ItemGroup>
+
+</Project>

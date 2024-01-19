@@ -6,4 +6,4 @@ In this repo there are various translations of several implementations of the [O
 Each version presents different refactoring challenges.
 
 ## Code Reading Practice
-Test your code reading skills. Here is a description of what to do: [Scanning for Code Smells](https://sammancoaching.org/exercises/code_reading.html). There are suitable lists of urls to open in some of the language subdirectories.
+Test your code reading skills. Here is a description of what to do: [Scanning for Code Smells](https://sammancoaching.org/exercises/code_reading.html). There are suitable urls to open in the README in the C# language subdirectory.

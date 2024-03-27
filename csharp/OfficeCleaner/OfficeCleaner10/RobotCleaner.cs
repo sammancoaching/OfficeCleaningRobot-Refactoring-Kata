@@ -62,46 +62,7 @@ namespace OfficeCleaner10
 				uniquePlacesVisited += steps - getNumberOfIntersections(lineSegment);
 			else
 			{
-				// visit unique positions of the segment
-				LineSegment ls = lineSegment;
-				int steps1 = ls.max - ls.min + 1;
-				Point pointToCheck;
-		
-				for(int i = 0; i < steps1; i++)
-				{
-					if(ls.alongAxis == 'x')
-						pointToCheck = new Point(ls.min+i, ls.value);
-					else
-						pointToCheck = new Point(ls.value, ls.min+i);
-
-					// Check if 'Point p' is alredy Visited
-					bool Visited = false;
-					if (lineSegmentDictionary[0].ContainsKey(pointToCheck.y))
-					{
-						foreach(LineSegment ls1 in lineSegmentDictionary[0][pointToCheck.y])
-						{
-							if (pointToCheck.x >= ls1.min && pointToCheck.x <= ls1.max)
-							{
-								Visited = true;
-								break;
-							}
-						}
-					}
-					if (lineSegmentDictionary[1].ContainsKey(pointToCheck.x))
-					{
-						foreach(LineSegment ls1 in lineSegmentDictionary[1][pointToCheck.x])
-						{
-							if(pointToCheck.y >= ls1.min && pointToCheck.y <= ls1.max)
-							{
-								Visited = true;
-								break;
-							}
-						}
-					}
-
-					if(!Visited)
-						uniquePlacesVisited++;					
-				}
+				VisitUniquePositions(lineSegment);
 			}
 
 			// Add line segment to one of two internal dictinarys
@@ -119,8 +80,57 @@ namespace OfficeCleaner10
 				lineSegmentDictionary[axis].Add(ls2.value, listOfLineSegments);
 			}
 		}
-		
 
+		private void VisitUniquePositions(LineSegment lineSegment)
+		{
+			// visit unique positions of the segment
+			LineSegment ls = lineSegment;
+			int steps1 = ls.max - ls.min + 1;
+			Point pointToCheck;
+		
+			for(int i = 0; i < steps1; i++)
+			{
+				if(ls.alongAxis == 'x')
+					pointToCheck = new Point(ls.min+i, ls.value);
+				else
+					pointToCheck = new Point(ls.value, ls.min+i);
+
+				var Visited = IsPointAlreadyVisited(pointToCheck);
+
+				if(!Visited)
+					uniquePlacesVisited++;					
+			}
+		}
+
+		private bool IsPointAlreadyVisited(Point pointToCheck)
+		{
+			// Check if 'Point p' is alredy Visited
+			bool Visited = false;
+			if (lineSegmentDictionary[0].ContainsKey(pointToCheck.y))
+			{
+				foreach(LineSegment ls1 in lineSegmentDictionary[0][pointToCheck.y])
+				{
+					if (pointToCheck.x >= ls1.min && pointToCheck.x <= ls1.max)
+					{
+						Visited = true;
+						break;
+					}
+				}
+			}
+			if (lineSegmentDictionary[1].ContainsKey(pointToCheck.x))
+			{
+				foreach(LineSegment ls1 in lineSegmentDictionary[1][pointToCheck.x])
+				{
+					if(pointToCheck.y >= ls1.min && pointToCheck.y <= ls1.max)
+					{
+						Visited = true;
+						break;
+					}
+				}
+			}
+
+			return Visited;
+		}
 
 
 		// Check if a line segment overlap any other segments, return true if so.

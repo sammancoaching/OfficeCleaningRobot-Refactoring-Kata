@@ -5,6 +5,7 @@
 #include <vector>
 #include "catch2/catch.hpp"
 #include "RobotCleaner.h"
+#include "OfficeCleaner01/Program.h"
 
 using namespace std;
 
@@ -57,5 +58,11 @@ extern void OfficeCleaner9Main(); // Assuming this is declared elsewhere
 TEST_CASE("OfficeCleaner9 Tests", "[OfficeCleaner9]") {
     for (auto &[filename, expected]: stringProvider()) {
         DoRobotCleanerTest(filename, expected, OfficeCleaner9Main);
+    }
+}
+
+TEST_CASE("OfficeCleaner1 Tests", "[OfficeCleaner1]") {
+    for (auto &[filename, expected]: stringProvider()) {
+       DoRobotCleanerTest(filename, expected, OfficeCleaner01::OfficeCleaner1Main);
     }
 }

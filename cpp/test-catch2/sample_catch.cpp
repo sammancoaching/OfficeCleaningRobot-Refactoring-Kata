@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <filesystem>
 #include "catch2/catch.hpp"
 #include "RobotCleaner.h"
 #include "OfficeCleaner01/Program.h"

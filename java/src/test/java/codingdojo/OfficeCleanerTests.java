@@ -1,5 +1,6 @@
 package codingdojo;
 
+import codingdojo.officecleaner1.OfficeCleaner1;
 import codingdojo.officecleaner9.OfficeCleaner9;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -50,6 +51,16 @@ public class OfficeCleanerTests {
             System.setIn(originalIn);
             System.setOut(originalOut);
         }
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("stringProvider")
+    public void OfficeCleaner1Test(Map.Entry<String, String> data) throws Exception
+    {
+        String filename = data.getKey();
+        String expected = data.getValue();
+        DoRobotCleanerTest(filename, expected, OfficeCleaner1::main);
 
     }
 

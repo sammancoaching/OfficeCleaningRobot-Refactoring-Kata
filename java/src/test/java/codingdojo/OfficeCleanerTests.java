@@ -1,11 +1,12 @@
 package codingdojo;
 
 import codingdojo.officecleaner9.OfficeCleaner9;
-import com.spun.util.Tuple;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.*;
+import java.util.AbstractMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.stream.Stream;
 
@@ -13,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OfficeCleanerTests {
 
-    static Stream<Tuple<String, String>> stringProvider() {
+    static Stream<Map.Entry<String, String>> stringProvider() {
         return Stream.of(
-                new Tuple<>("Input_empty.txt",  "=> Cleaned: 1"),
-                new Tuple<>("Input_one.txt",  "=> Cleaned: 1"),
-                new Tuple<>("Input_given_sample.txt",  "=> Cleaned: 4"),
-                new Tuple<>("Input_only_west.txt",  "=> Cleaned: 9"),
-                new Tuple<>("Input_wiping.txt",  "=> Cleaned: 9"),
-                new Tuple<>("Input_large.txt",  "=> Cleaned: 1047")
+                new AbstractMap.SimpleEntry<>("Input_empty.txt",  "=> Cleaned: 1"),
+                new AbstractMap.SimpleEntry<>("Input_one.txt",  "=> Cleaned: 1"),
+                new AbstractMap.SimpleEntry<>("Input_given_sample.txt",  "=> Cleaned: 4"),
+                new AbstractMap.SimpleEntry<>("Input_only_west.txt",  "=> Cleaned: 9"),
+                new AbstractMap.SimpleEntry<>("Input_wiping.txt",  "=> Cleaned: 9"),
+                new AbstractMap.SimpleEntry<>("Input_large.txt",  "=> Cleaned: 1047")
         );
     }
 
@@ -54,10 +55,10 @@ public class OfficeCleanerTests {
 
     @ParameterizedTest
     @MethodSource("stringProvider")
-    public void OfficeCleaner9Test(Tuple<String, String> data) throws Exception
+    public void OfficeCleaner9Test(Map.Entry<String, String> data) throws Exception
     {
-        String filename = data.getFirst();
-        String expected = data.getSecond();
+        String filename = data.getKey();
+        String expected = data.getValue();
         DoRobotCleanerTest(filename, expected, OfficeCleaner9::main);
 
     }

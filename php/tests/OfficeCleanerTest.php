@@ -7,11 +7,11 @@ namespace OfficeCleaner\Tests;
 use PHPUnit\Framework\TestCase;
 use OfficeCleaner1;
 
-class OfficeCleanerTests extends TestCase {
-    private static function doRobotCleanerTest($filename, $expected, callable $sut)
+class OfficeCleanerTest extends TestCase {
+    private static function doRobotCleanerTest($filename, $expected, callable $sut): void
     {
         try {
-            $filePath = __DIR__ . '/' . $filename; // Combine __DIR__ with the filename
+            $filePath = __DIR__ . '/' . $filename;
             $stdin = fopen($filePath, 'r');
             // Replace the standard input stream with our file
             $GLOBALS['stdin'] = $stdin;
@@ -38,7 +38,7 @@ class OfficeCleanerTests extends TestCase {
         });
     }
 
-    public function dataProvider()
+    public function dataProvider(): array
     {
         return [
             ["Input_empty.txt", "=> Cleaned: 1"],

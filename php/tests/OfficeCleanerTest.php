@@ -13,18 +13,14 @@ class OfficeCleanerTest extends TestCase {
         try {
             $filePath = __DIR__ . '/' . $filename;
             $stdin = fopen($filePath, 'r');
-            // Replace the standard input stream with our file
-            $GLOBALS['stdin'] = $stdin;
 
             ob_start();
-            $sut();
+            $sut($filePath);
             $output = ob_get_clean();
 
             static::assertSame($expected, trim($output));
         } finally {
             fclose($stdin);
-            // Restore the original stdin stream
-            $GLOBALS['stdin'] = fopen('php://stdin', 'r');
         }
     }
 
@@ -33,8 +29,8 @@ class OfficeCleanerTest extends TestCase {
      */
     public function testOfficeCleaner1($filename, $expected)
     {
-        self::doRobotCleanerTest($filename, $expected, function () {
-            OfficeCleaner1\Program::main([]);
+        self::doRobotCleanerTest($filename, $expected, function ($arg) {
+            OfficeCleaner1\Program::main($arg);
         });
     }
 

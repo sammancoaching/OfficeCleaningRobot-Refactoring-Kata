@@ -4,19 +4,19 @@ namespace OfficeCleaner1;
 
 class Program
 {
-    public static function main()
+    public static function main($stdin)
     {
-        $firstLine = trim(fgets(STDIN));
+        $firstLine = trim(fgets($stdin));
         $commandNum = intval($firstLine);
 
         $inputCommands = [];
         $inputCommands[] = $firstLine;
-        $secondLine = trim(fgets(STDIN));
+        $secondLine = trim(fgets($stdin));
         $inputCommands[] = $secondLine;
         $mainRobot = new RobotCleaner();
 
         for ($count = 0; $count < $commandNum; $count++) {
-            $inputCommands[] = trim(fgets(STDIN));
+            $inputCommands[] = trim(fgets($stdin));
         }
 
         if (!$mainRobot->parseInput($inputCommands)) {
@@ -27,5 +27,5 @@ class Program
     }
 }
 
-if (PHP_SAPI === 'cli') { Program::main(); }
+if (PHP_SAPI === 'cli') { Program::main(STDIN); }
 ?>

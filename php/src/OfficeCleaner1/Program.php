@@ -26,6 +26,4 @@ class Program
         echo "=> Cleaned: " . $mainRobot->getVisitedPositions();
     }
 }
-
-if (PHP_SAPI === 'cli') { Program::main(STDIN); }
 ?>

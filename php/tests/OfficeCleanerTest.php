@@ -15,7 +15,7 @@ class OfficeCleanerTest extends TestCase {
             $stdin = fopen($filePath, 'r');
 
             ob_start();
-            $sut($filePath);
+            $sut($stdin);
             $output = ob_get_clean();
 
             static::assertSame($expected, trim($output));

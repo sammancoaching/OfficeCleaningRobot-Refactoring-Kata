@@ -15,18 +15,18 @@ class RobotCleaner
     // This entire block should be set up with some kind of dependency injection
     // but for now has been coded like this
 
-    private static $north;
-    private static $south;
-    private static $east;
-    private static $west;
+    private static North $north;
+    private static South $south;
+    private static East $east;
+    private static West $west;
 
-    private static $northString = "N";
-    private static $southString = "S";
-    private static $eastString = "E";
-    private static $westString = "W";
+    private static string $northString = "N";
+    private static string $southString = "S";
+    private static string $eastString = "E";
+    private static string $westString = "W";
 
-    private static $moveList = [];
-    private static $directionTable = [];
+    private static array $moveList = [];
+    private static array $directionTable = [];
 
     // block ends
 
@@ -54,12 +54,12 @@ class RobotCleaner
         $this->cleanerParser = new RobotCleanerParser(self::$moveList);
     }
 
-    public function getVisitedPositions()
+    public function getVisitedPositions(): int
     {
         return count($this->coordHashSet);
     }
 
-    public function parseInput($input)
+    public function parseInput(array $input): bool
     {
         $this->coordHashSet = [];
         if (!$this->cleanerParser->parse($input)) {
@@ -88,9 +88,5 @@ class RobotCleaner
         return true;
     }
 }
-
-?>
-
-
 
 

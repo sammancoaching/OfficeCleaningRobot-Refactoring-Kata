@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 use OfficeCleaner1;
 
 class OfficeCleanerTest extends TestCase {
-    private static function doRobotCleanerTest($filename, $expected, callable $sut): void
+    private static function doRobotCleanerTest(string $filename, string $expected, callable $sut): void
     {
         try {
             $filePath = __DIR__ . '/' . $filename;
@@ -27,9 +27,9 @@ class OfficeCleanerTest extends TestCase {
     /**
      * @dataProvider dataProvider
      */
-    public function testOfficeCleaner1($filename, $expected)
+    public function testOfficeCleaner1(string $filename, string $expected): void
     {
-        self::doRobotCleanerTest($filename, $expected, function ($arg) {
+        self::doRobotCleanerTest($filename, $expected, function ($arg): void {
             OfficeCleaner1\Program::main($arg);
         });
     }

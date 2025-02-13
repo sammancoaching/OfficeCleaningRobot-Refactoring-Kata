@@ -1,18 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OfficeCleaner1;
 
-class Coordinate {
-    public $x;
-    public $y;
+use Stringable;
 
-    public function __construct($horiz, $vert)
+class Coordinate implements Stringable {
+    public function __construct(public int $x, public int $y)
     {
-        $this->x = $horiz;
-        $this->y = $vert;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->x . "," . $this->y;
     }

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace OfficeCleaner1;
 
 class Program
 {
-    public static function main($stdin = null)
+    public static function main($stdin = null): void
     {
         // read from STDIN if no stream is passed in
         if (func_num_args() === 0) {
@@ -27,5 +29,3 @@ class Program
         echo "=> Cleaned: " . $mainRobot->getVisitedPositions();
     }
 }
-
-?>

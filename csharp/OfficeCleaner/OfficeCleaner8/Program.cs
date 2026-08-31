@@ -55,7 +55,7 @@ public class Program
 
                 //create Rover object
                 var rover = new RobotCleaner();
-                //Visit plateau space
+                //Visit office space
                 int u = rover.move(startingPoint, commands);
                 //print out result to standard out
                 System.Console.WriteLine("=> Cleaned: " + u);

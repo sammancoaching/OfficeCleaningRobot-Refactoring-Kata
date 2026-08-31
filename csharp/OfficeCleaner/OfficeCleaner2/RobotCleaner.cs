@@ -58,7 +58,7 @@ namespace OfficeCleaner2
         }
 
         /// <summary>
-        /// Visits the plateau area based on a command queue
+        /// Visits the office area based on a command queue
         /// </summary>
         /// <param name="commands">Command queue</param>
         public void VisitOffice(Queue<Command> commands)
@@ -82,7 +82,7 @@ namespace OfficeCleaner2
         }
 
         /// <summary>
-        /// Gets a number of unique plateau places (vertices) Visited
+        /// Gets a number of unique office places (vertices) Visited
         /// </summary>
         /// <returns></returns>
         public long GetNumberOfUniquePlacesVisited()

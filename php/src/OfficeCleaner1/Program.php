@@ -27,5 +27,4 @@ class Program
         echo "=> Cleaned: " . $mainRobot->getVisitedPositions();
     }
 }
-
 ?>
